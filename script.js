@@ -15,8 +15,20 @@ form.addEventListener("submit", function(event){
     const searchedWord =  document.querySelector("#searched-word").value;
   
     //Display fetched definition
-    displaySearchedWord(searchedWord);
-    form.reset();
+    // displaySearchedWord(searchedWord);
+    // form.reset();
+
+    //Display word searched in  dictionary API 
+
+    fetch("https://api.dictionaryapi.dev/api/v2/entries/en/${searchedword}")
+	.then(function(response){
+		return response.json();
+    })
+   .then(function(data){
+		const foundMeaning = 
+		"Meaning: " + data[0].meaning[0].definitions[0].definitions[0]
+    })
+
 
     //Error Handling 
     if(!searchedWord){

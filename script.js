@@ -1,6 +1,7 @@
 const form = document.getElementById("word-search-form");
 const errorHandling = document.getElementById("errorPopUp");
 const displayDefinition = document.getElementById("definition");
+let searchedWord;
 
 
 function displaySearchedWord(newWord){
@@ -12,25 +13,15 @@ function displaySearchedWord(newWord){
 
 form.addEventListener("submit", function(event){
     event.preventDefault();
-    const searchedWord =  document.querySelector("#searched-word").value;
+    searchedWord =  document.querySelector("#searched-word").value;
   
-    //Display fetched definition
+
+    
+    // //Display fetched definition
     // displaySearchedWord(searchedWord);
-    // form.reset();
+    
 
-    //Display word searched in  dictionary API 
-
-    fetch("https://api.dictionaryapi.dev/api/v2/entries/en/${searchedword}")
-	.then(function(response){
-		return response.json();
-    })
-   .then(function(data){
-		const foundMeaning = 
-		"Meaning: " + data[0].meaning[0].definitions[0].definitions[0]
-    })
-
-
-    //Error Handling 
+     //Error Handling 
     if(!searchedWord){
         //Empty input
         errorHandling.textContent = "No input received, please type in a valid word"
@@ -38,5 +29,30 @@ form.addEventListener("submit", function(event){
     }
     // Clear error message
       errorHandling.textContent = '';
+
+    //Display word searched in  dictionary API 
+
+    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchedWord}`)
+	.then(function(response){
+		return response.json();
+    })
+   .then(function(data){
+
+        // const enteredWord = data.word[0];
+        const word = data[0].word;
+
+        const phonetic = data[0].phonetic;
+
+        const retrievedDefinition = data[0].meanings[0].definitions[0].definition
+
+
+        displayDefinition.innerHTML = "Word: " + word + "\n" + 
+                                    "Phonetic: " + phonetic + "\n" + 
+                                    "Meaning: " + retrievedDefinition;
+    })
+    form.reset();
+
+
+   
 
 });

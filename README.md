@@ -2,12 +2,13 @@
 
 ## Description
 
-This is a web application that allows users to search for words from the dictionary.
-One is able to view the phonetics, defitions and synonymns of the word searched if is is available. 
+This is a single page application that allows users to search for words from the dictionary.
+Output received contains available phonetics, defitions and synonymns.
+
 ## Features
 - A search bar to type in the words
 - A display section providing : the meaning, phonetics, audio pronunciation and synonyms
-- Error handling for missing or invalid input
+- Error handling.
 
 ## How to run the project.
 1. Clone the repository
@@ -19,7 +20,7 @@ One is able to view the phonetics, defitions and synonymns of the word searched 
 - HTML 
 - JavaScript
 - CSS
--Fetch API(JSONplaceholder API)
+- Fetch API
 ## License
 MIT License
 Copyright (c) 2026 Tracy Wafula

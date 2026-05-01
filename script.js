@@ -1,3 +1,4 @@
+//Required elements for form manipulation 
 const form = document.getElementById("word-search-form");
 const errorHandling = document.getElementById("errorPopUp");
 const displayDefinition = document.getElementById("showDefinition");
@@ -7,47 +8,35 @@ const playAudioButton = document.getElementById("playAudioButton");
 const defineAll = document.getElementById("showDefinitionb");
 const displaySynonyms = document.getElementById("showSynonyms");
 const initialOutput = document.getElementById("apiResults")
-
+const searchBar = document.getElementById("searched-word")
 let audioUrl;
 let searchedWord;
 
-//The display div is hiddent until fetching is trigerred.
-// function hideDisplayDiv(){
-//     initialOutput.style.display = "block";
-// }
 
-
-form.addEventListener("click", function(event){
+form.addEventListener("submit", function(event){
+    
     event.preventDefault();
     searchedWord =  document.querySelector("#searched-word").value;
-     //Error Handling 
-    if(!searchedWord){
-        // Empty input
-        errorHandling.textContent = "Invalid input, please try again";
-        return;
+     //Error handling for no input
+    if(searchedWord == ""){
+        errorHandling.textContent = "Empty input, please try again";
+        return
     }
-    
-    // if (!/^[A-Za-z]+$/.test(searchedWord)) {
-    // errorMessage.textContent = 'Please enter a valid email address.';
-    //     return;
-    //   }
-    
      // Clear error message
     errorHandling.textContent = '';
 
-    //Display word searched in  dictionary API 
-
+    
+    //Display results of valid word search 
+    //Error handling for missing synonymn and phonetic results
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchedWord}`)
 	.then(function(response){
 		return response.json();
     })
    .then(function(data){
         const word = data[0].word;
+        displayDefinition.innerHTML =  word;
 
         const phonetic = data[0].phonetic;
-
-        displayDefinition.innerHTML =  word;
-        
         displayPhonetic.innerHTML = phonetic || "No phonetics available";
 
         const audio = data[0].phonetics[0].audio;
@@ -65,11 +54,9 @@ form.addEventListener("click", function(event){
        
 
         const retrievedDefinitions = [];
-
         for( let i =0; i < data[0].meanings[0].definitions.length; i++){
             retrievedDefinitions.push(data[0].meanings[0].definitions[i].definition);
         }
-
         defineAll.innerHTML = " ";
         retrievedDefinitions.forEach((definition, index) => {
             defineAll.innerHTML += `<p>${index+1}. ${definition}</p>`;
@@ -85,25 +72,15 @@ form.addEventListener("click", function(event){
                 }
             }
         }
-
         if(wordSynonyms.length > 0){
             displaySynonyms.innerHTML =  `<p>Synonymns: ${wordSynonyms} </p>`;
         }else {
             displaySynonyms.innerHTML=`<p>No synonyms available</p>`
-        }
-
-       
-    
-      
-        
-    });
-    
-
+        }  
   
-        
-
-
-    
-    
-    
+  
+    });
+      
+    form.reset();
+   
 });

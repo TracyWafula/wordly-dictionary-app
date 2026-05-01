@@ -7,31 +7,37 @@
     <link rel = "stylesheet" href="style.css">
 </head>
 <body>
-    <h1> THE ENGLISH DICTIONARY </h1>
-    <h3> View phonetics, definitions and synonyms.</h3>
+     
+    <section class="sectionone">
+       <h1 id="app-name"> Wordly Dictionary Application  </h1>
+            <p> View phonetics, definitions and synonyms.<p>
 
-    <form id="word-search-form">
-        <label for="searched-word"> </label>
-        <input type="text" id="searched-word" placeholder="Enter a word" >
-        <button type="submit">Search</button>
-        <p class="errorhandling" id="errorPopUp"></p>
-    </form>
+            <form id="word-search-form">
+                <label for="searched-word"> </label>
+                <input id="searched-word"  placeholder="Enter a word"  type="text" required>
+                <button type="submit">Search</button>
+                <p class="errorhandling" id="errorPopUp"></p>
+            </form>
 
-    <h3>Definition</h3>
-    <div id="apiResults"> 
+    
+    
+    <div id="apiResults" > 
         <p id="showDefinition"></p>
         <p id="showPhonetic"></p>
-        <button id="playAudioButton" > Play Word Audio </button>
+        <button id="playAudioButton"> Play Word Audio </button>
         <audio id="playAudio"></audio>
+   
+        <div id="showDefinitionb"></div>
+        
     </div>
-    <div id="showDefinitionb"></div>
+     
+    </section>
+
     <div id="showSynonyms"> </div>
     
     
     
-    <!-- <audio id="audioSource" controls> </audio>
-    <button id="pronunciation" > </button>
-     -->
+
     <script src="script.js"></script>
 </body>
 </html>

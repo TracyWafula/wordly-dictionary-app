@@ -6,28 +6,24 @@ const playAudio = document.getElementById("playAudio");
 const playAudioButton = document.getElementById("playAudioButton");
 const defineAll = document.getElementById("showDefinitionb");
 const displaySynonyms = document.getElementById("showSynonyms");
+const initialOutput = document.getElementById("apiResults")
 
 let audioUrl;
 let searchedWord;
 
-
-// function displaySearchedWord(newWord){
-//     const wordTyped = document.createElement("p")
-//     wordTyped.textContent = newWord;
-//     displayDefinition.append(wordTyped)
+//The display div is hiddent until fetching is trigerred.
+// function hideDisplayDiv(){
+//     initialOutput.style.display = "block";
 // }
 
 
-form.addEventListener("submit", function(event){
+form.addEventListener("click", function(event){
     event.preventDefault();
     searchedWord =  document.querySelector("#searched-word").value;
-
-   
-    
      //Error Handling 
     if(!searchedWord){
         // Empty input
-        errorHandling.textContent = "No input received, please type in a valid word"
+        errorHandling.textContent = "Invalid input, please try again";
         return;
     }
     errorHandling.textContent = '';
@@ -93,15 +89,21 @@ form.addEventListener("submit", function(event){
         if(wordSynonyms.length > 0){
             displaySynonyms.innerHTML =  `<p> Synonymns: ${wordSynonyms} </p>`;
         }else {
-            displaySynonyms.innerHTML = `<p> No synonyms avalable </p>`;
+            displaySynonyms.innerHTML = `<p> No synonyms available </p>`;
         }
+
+       
+    
+      
+        
+    });
+    
+
+  
+        
 
 
     
-      form.reset();
-
-    });
-
     
     
 });

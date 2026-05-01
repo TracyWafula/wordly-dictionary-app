@@ -3,21 +3,23 @@
 ## Description
 
 This is a web application that allows users to search for words from the dictionary.
+One is able to view the phonetics, defitions and synonymns of the word searched if is is available. 
 ## Features
 - A search bar to type in the words
 - A display section providing : the meaning, phonetics, audio pronunciation and synonyms
-- Error handling for invalid or missing input
+- Error handling for missing or invalid input
 
 ## How to run the project.
 1. Clone the repository
 2. Open the project folder
-3. Open the indes.html file in your browser
+3. Open the index.html file in your browser
+4. Attempt searching for valid and invalid words
 
 ## Technologies Used. 
 - HTML 
 - JavaScript
-- Css
--Fetch API(JSON placeholder API)
+- CSS
+-Fetch API(JSONplaceholder API)
 ## License
 MIT License
 Copyright (c) 2026 Tracy Wafula

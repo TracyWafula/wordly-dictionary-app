@@ -7,18 +7,31 @@
     <link rel = "stylesheet" href="style.css">
 </head>
 <body>
-    <h1> TED | THE ENGLISH DICTIONARY </h1>
+    <h1> THE ENGLISH DICTIONARY </h1>
+    <h3> View phonetics, definitions and synonyms.</h3>
 
     <form id="word-search-form">
-        <label for="searched-word">Search for the Word: </label>
-        <input type="text" id="searched-word" name="searched-word" placeholder="Search Dictionary" >
+        <label for="searched-word"> </label>
+        <input type="text" id="searched-word" placeholder="Enter a word" >
         <button type="submit">Search</button>
         <p class="errorhandling" id="errorPopUp"></p>
     </form>
 
-    <h1>Definition</h1>
-    <div id="definition"></div>
+    <h3>Definition</h3>
+    <div id="apiResults"> 
+        <p id="showDefinition"></p>
+        <p id="showPhonetic"></p>
+        <button id="playAudioButton" > Play Word Audio </button>
+        <audio id="playAudio"></audio>
+    </div>
+    <div id="showDefinitionb"></div>
+    <div id="showSynonyms"> </div>
     
+    
+    
+    <!-- <audio id="audioSource" controls> </audio>
+    <button id="pronunciation" > </button>
+     -->
     <script src="script.js"></script>
 </body>
 </html>

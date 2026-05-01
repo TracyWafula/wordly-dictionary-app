@@ -18,7 +18,6 @@ This is a web application that allows users to search for words from the diction
 - JavaScript
 - Css
 -Fetch API(JSON placeholder API)
-
 ## License
 MIT License
 Copyright (c) 2026 Tracy Wafula

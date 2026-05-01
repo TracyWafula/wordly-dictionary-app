@@ -26,14 +26,14 @@ form.addEventListener("click", function(event){
         errorHandling.textContent = "Invalid input, please try again";
         return;
     }
-    errorHandling.textContent = '';
+    
     // if (!/^[A-Za-z]+$/.test(searchedWord)) {
-    //     errorMessage.textContent = 'Please enter a valid email address.';
+    // errorMessage.textContent = 'Please enter a valid email address.';
     //     return;
     //   }
-     // Clear error message
-      
     
+     // Clear error message
+    errorHandling.textContent = '';
 
     //Display word searched in  dictionary API 
 
@@ -87,9 +87,9 @@ form.addEventListener("click", function(event){
         }
 
         if(wordSynonyms.length > 0){
-            displaySynonyms.innerHTML =  `<p> Synonymns: ${wordSynonyms} </p>`;
+            displaySynonyms.innerHTML =  `<p>Synonymns: ${wordSynonyms} </p>`;
         }else {
-            displaySynonyms.innerHTML = `<p> No synonyms available </p>`;
+            displaySynonyms.innerHTML=`<p>No synonyms available</p>`
         }
 
        
